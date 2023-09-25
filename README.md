@@ -1,6 +1,15 @@
 # Svelte + Vite
 
-This template should help get you started developing with Svelte in Vite.
+The Ping Pong club poll chacking best tables inside Barcelona. 
+Project build with Svelte and Vite. 
+
+## Live on Netlify
+https://ping-pong-club.netlify.app/
+
+
+### Preview
+<img src="src/assets/preview.png" alt="Preview" width="200" />
+
 
 ## Recommended IDE Setup
 
@@ -49,3 +58,20 @@ export default writable(0)
 
 ### Inspired by
 https://github.com/19mario19/svelte-polls.git
+
+
+### Hot to deploy on Netlify
+Add `netlify.toml` file on the root directory
+```
+[build]
+  command = "npm run build"
+  publish = "dist"
+  ```
+
+  Update the package.json script
+  ```
+    "predeploy": "npm run build",
+    "deploy": "echo 'Deploying to Netlify'", 
+    ```
+
+
