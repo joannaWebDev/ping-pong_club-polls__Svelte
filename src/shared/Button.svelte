@@ -1,13 +1,16 @@
-<script>
-  export let type = "primary"
-  export let flat = false
-  export let inverse = false
-  export let animate = true
-  export let shake = false
-  export let radius = 10
-  export let disabled = false
-  $: pixelAmount = `${radius}px`
+<script lang="ts">
+  export let type: string = "primary";
+  export let flat: boolean = false;
+  export let inverse: boolean = false;
+  export let animate: boolean = true;
+  export let shake: boolean = false;
+  export let radius: number = 10;
+  export let disabled: boolean = false;
+
+  let pixelAmount: string;
+  $: pixelAmount = `${radius}px`;
 </script>
+
 
 <button
   on:click

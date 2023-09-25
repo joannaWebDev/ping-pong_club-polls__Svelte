@@ -1,6 +1,3 @@
-<script>
-</script>
-
 <div class="clock">
   <div class="line" />
   <div class="line minute" />

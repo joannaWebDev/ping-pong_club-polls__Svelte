@@ -1,7 +1,7 @@
-<script>
+<script lang="ts">
   import { blur } from "svelte/transition"
-  export let border = false
-  export let animate = false
+  export let border:boolean = false
+  export let animate:boolean = false
 </script>
 
 <div class="card" class:border class:animate transition:blur>

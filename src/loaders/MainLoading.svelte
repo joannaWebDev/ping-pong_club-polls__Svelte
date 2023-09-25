@@ -1,5 +1,4 @@
-<!-- MainLoading.svelte -->
-<script>
+<script lang="ts">
   import { onMount } from "svelte"
   import getRandomHexColor from "../helper/functions/getRandomHexColor"
 
@@ -31,46 +30,52 @@
   export let randomBorderColor = true
   export let randomBorderStyle = true
 
-  // Generate random border color
-  function generateRandomBorderColor() {
-    borderColor = getRandomHexColor()
+ // Generate random border color
+ function generateRandomBorderColor(): void {
+    borderColor = getRandomHexColor();
   }
 
   // Generate Card Data
-  function generateCardData(cardCount, delayIncrement = 0.2) {
-    let cardData = []
+  interface CardData {
+    id: number;
+    name: string;
+    delay: string;
+    bgColor: string;
+  }
+
+  function generateCardData(cardCount: number, delayIncrement = 0.2): CardData[] {
+    const cardData: CardData[] = [];
     for (let index = 0; index < cardCount; index++) {
-      const cardName = `card-${index}`
+      const cardName = `card-${index}`;
       cardData.push({
         id: index,
         name: cardName,
         delay: (index * delayIncrement).toFixed(2),
         bgColor: getRandomHexColor(),
-      })
+      });
     }
-    return cardData
+    return cardData;
   }
 
-  let cards = generateCardData(howManyCards, delayCard)
+  let cards: CardData[] = generateCardData(howManyCards, delayCard);
 
   // Dynamic Styles
-  let borderRadiusStyle = `${borderRadius}px`
-  let borderSizeStyle = `${borderSize}px`
-  let animationDuration = `${speed}ms`
-  let inlineStyles = `color: ${color};
+  let borderRadiusStyle: string = `${borderRadius}px`;
+  let borderSizeStyle: string = `${borderSize}px`;
+  let animationDuration: string = `${speed}ms`;
+  let inlineStyles: string = `color: ${color};
     background-color: ${bgColor};
-    --animation-duration: ${animationDuration};`
+    --animation-duration: ${animationDuration};`;
 
   onMount(() => {
-    let borderStyles = ["solid", "dashed", "dotted", "double"]
+    let borderStyles = ["solid", "dashed", "dotted", "double"];
     if (randomBorderColor) {
-      generateRandomBorderColor()
+      generateRandomBorderColor();
     }
     if (randomBorderStyle) {
-      borderStyle =
-        borderStyles[Math.floor(Math.random() * borderStyles.length)]
+      borderStyle = borderStyles[Math.floor(Math.random() * borderStyles.length)];
     }
-  })
+  });
 </script>
 
 <div style={inlineStyles} class="bg">

@@ -1,4 +1,4 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from "svelte"
   import getRandomHexColor from "../helper/functions/getRandomHexColor"
   import percentTotal from "../helper/functions/percentTotal"
@@ -7,19 +7,32 @@
   import Card from "../shared/Card.svelte"
   import { flip } from "svelte/animate"
 
+  interface Poll {
+  id: string;
+  question: string;
+  votesA: number;
+  votesB: number;
+  bg: string;
+  answers: {
+    answerA: string;
+    answerB: string;
+  };
+  createdAt?: string; // Make createdAt optional
+}
+
   // Create an event dispatcher
   let dispatch = createEventDispatcher()
 
-  // Function to send the ID of a selected poll
-  const getId = (id) => dispatch("id", id)
-  function getIdAndType(id, type) {
-    dispatch("type", {id, type})
-  }
+// Function to send the ID of a selected poll
+const getId = (id: string) => dispatch("id", id);
 
-  // Declare variables and states
-  export let pollList = []
-  let activeColor = "#23a523ba"
-  $: localStorage.setItem("polls", JSON.stringify(pollList))
+const getIdAndType = (id: string, type: string) => dispatch("type", { id, type });
+
+
+// Declare variables and states
+export let pollList: Poll[] = [];
+let activeColor = "#23a523ba";
+localStorage.setItem("polls", JSON.stringify(pollList));
 
   let active = ""
   let percent = true

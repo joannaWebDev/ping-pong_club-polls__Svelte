@@ -1,66 +1,66 @@
-<script>
-  import { onMount } from "svelte"
-  import CreatePollForm from "./components/CreatePollForm.svelte"
-  import Footer from "./components/Footer.svelte"
-  import Header from "./components/Header.svelte"
-  import PollList from "./components/PollList.svelte"
-  import Tabs from "./shared/Tabs.svelte"
-  import MainLoading from "./loaders/MainLoading.svelte"
-  import polls from "./stores/store"
+<script lang="ts">
+  import { onMount } from "svelte";
+  import CreatePollForm from "./components/CreatePollForm.svelte";
+  import Footer from "./components/Footer.svelte";
+  import Header from "./components/Header.svelte";
+  import PollList from "./components/PollList.svelte";
+  import Tabs from "./shared/Tabs.svelte";
+  import MainLoading from "./loaders/MainLoading.svelte";
+  import polls from "./stores/store";
 
-  let list = ["Current Polls", "Add New Poll"]
-  let active = list[1] // Set the initial active tab
+  let list: string[] = ["Current Polls", "Add New Poll"];
+  let active: string = list[1]; // Set the initial active tab
 
-  let showInitialLoader = true
-  let loadingTime = 5000 // ms
+  let showInitialLoader: boolean = true;
+  let loadingTime: number = 5000; // ms
 
-  function justFirstLoad() {
-    const hasLoadedBefore = JSON.parse(localStorage.getItem("loadedBefore"))
+  function justFirstLoad(): void {
+    const hasLoadedBefore = JSON.parse(localStorage.getItem("loadedBefore"));
 
     if (!hasLoadedBefore) {
-      showInitialLoader = true
+      showInitialLoader = true;
     }
-    localStorage.setItem("loadedBefore", "true")
+    localStorage.setItem("loadedBefore", "true");
   }
 
   onMount(() => {
-    active = list[0]
+    active = list[0];
 
     // justFirstLoad()
 
     const timeout = setTimeout(() => {
-      showInitialLoader = false
-    }, loadingTime)
+      showInitialLoader = false;
+    }, loadingTime);
 
-    return () => clearTimeout(timeout)
-  })
+    return () => clearTimeout(timeout);
+  });
 
-  function handleAdd(e) {
-    let poll = e.detail // using svelte disptacher
-    $polls = [poll, ...$polls]
-    localStorage.setItem("polls", JSON.stringify($polls))
+  function handleAdd(e: CustomEvent): void {
+    let poll = e.detail; // using svelte disptacher
+    $polls = [poll, ...$polls];
+    localStorage.setItem("polls", JSON.stringify($polls));
     // switch to poll list in 2s
     const timeout = setTimeout(() => {
-      active = list[0]
-    }, 2000)
+      active = list[0];
+    }, 2000);
 
-    ;() => clearTimeout(timeout)
+    () => clearTimeout(timeout);
   }
 
-  function handleVote(e) {
-    let { id, type } = e.detail
+  function handleVote(e: CustomEvent): void {
+    let { id, type } = e.detail;
     $polls = $polls.map((poll) => {
       return poll.id === id
         ? {
             ...poll,
             [type]: poll[type] + 1,
           }
-        : poll
-    })
+        : poll;
+    });
   }
 
-  function deletePoll(e) {
-    $polls = [...$polls].filter((poll) => poll.id !== e.detail)
+  function deletePoll(e: CustomEvent): void {
+    $polls = [...$polls].filter((poll) => poll.id !== e.detail);
   }
 </script>
 

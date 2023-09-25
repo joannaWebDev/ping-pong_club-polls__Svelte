@@ -1,8 +1,8 @@
-<script>
+<script lang="ts">
   import { createEventDispatcher } from "svelte"
   const dispatch = createEventDispatcher()
-  export let list = ["Home", "About"]
-  export let active = list[0]
+  export let list:string[] = ["Home", "About"]
+  export let active:string = list[0]
  
 </script>
 

@@ -1,6 +1,6 @@
-<script>
-  export let x = 0
-  export let y = 0
+<script lang="ts">
+  export let x:number = 0
+  export let y:number = 0
 </script>
 
 <div style={`top: ${y}px; left: ${x}px`} class="cursor" />
