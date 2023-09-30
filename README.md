@@ -11,6 +11,12 @@ https://ping-pong-club.netlify.app/
 <img src="src/assets/preview.png" alt="Preview" width="200" />
 
 
+### Installation
+```
+$ npm install
+$ npm run dev
+```
+
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).

@@ -81,6 +81,7 @@
 
 <style>
   main {
+    min-height:100vh;
     max-width: 1260px;
     margin: 40px auto;
     display: flex;

@@ -1,9 +1,9 @@
 <footer>
-  <div class="copyright">Copyright 2023 Ping Pong Club</div>
+  <div class="copyright">Copyright © 2023 Ping Pong Club</div>
   <div class="links">
-    <button
-      ><a href="https://github.com/joannaWebDev?tab=repositories"
-        ><svg
+    <button><a href="https://github.com/joannaWebDev?tab=repositories">
+      joannaWebDev 
+      <svg
           aria-hidden="true"
           height="24"
           viewBox="0 0 16 16"
@@ -17,7 +17,8 @@
           />
         </svg>
       </a></button
-    >
+    > 
+    <button><a href="https://www.bcnpingpong.com/" target="_blank">Ping Pong tables</a></button>
   </div>
 </footer>
 
@@ -25,6 +26,7 @@
   footer {
     padding: 40px;
     text-align: center;
+    margin-top: auto;
   }
   .copyright {
     color: #aaa;

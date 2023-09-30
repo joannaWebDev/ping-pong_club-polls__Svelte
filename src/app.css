@@ -47,6 +47,7 @@ body {
     font-size: 16px;
     line-height: 1.5;
     user-select: none;
+    overflow-x: hidden;
 };
 
 /* Reset Links */
@@ -74,6 +75,7 @@ select {
 }
 
 /* Additional Reset Styles */
+
 html {
     box-sizing: border-box;
 }
