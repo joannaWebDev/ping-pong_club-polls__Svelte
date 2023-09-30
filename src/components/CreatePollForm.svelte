@@ -25,7 +25,7 @@ interface Error {
 
   let dispatch = createEventDispatcher();
 
-  let done = false;
+  let done:boolean = false;
   let fields: Fields = {
     question: "",
     answers: {
@@ -42,11 +42,11 @@ interface Error {
     },
   };
 
-  let checkErrors = false;
+  let checkErrors:boolean = false;
 
   $: number = 3;
 
-  let show = false;
+  let show:boolean = false;
 
   function submitHandler() {
     done = false;

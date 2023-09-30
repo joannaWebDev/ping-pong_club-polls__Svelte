@@ -18,6 +18,13 @@ $ npm install
 $ npm run dev
 ```
 
+### Testing
+
+$ npx vitest run (to run all tests)
+$ npx vitest --watch run
+$ npx vitest run --coverage
+$ npx vitest run -t "CreatePollForm" (to target a specific file)
+
 ## Recommended IDE Setup
 
 [VS Code](https://code.visualstudio.com/) + [Svelte](https://marketplace.visualstudio.com/items?itemName=svelte.svelte-vscode).

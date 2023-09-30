@@ -18,17 +18,17 @@
    */
 
   // Animation Configuration
-  export let bgColor = "#fff"
-  export let color = "#000"
-  export let speed = 8000
-  export let borderRadius = Math.floor(Math.random() * 100)
-  export let borderSize = 5
-  export let borderStyle = "solid"
-  export let borderColor = "#000"
-  export let howManyCards = 8
-  export let delayCard = 0.2
-  export let randomBorderColor = true
-  export let randomBorderStyle = true
+  export let bgColor:string = "#fff"
+  export let color:string = "#000"
+  export let speed:number = 8000
+  export let borderRadius:number = Math.floor(Math.random() * 100)
+  export let borderSize:number = 5
+  export let borderStyle:string = "solid"
+  export let borderColor:string = "#000"
+  export let howManyCards:number = 8
+  export let delayCard:number = 0.2
+  export let randomBorderColor:boolean = true
+  export let randomBorderStyle:boolean = true
 
  // Generate random border color
  function generateRandomBorderColor(): void {
@@ -43,7 +43,7 @@
     bgColor: string;
   }
 
-  function generateCardData(cardCount: number, delayIncrement = 0.2): CardData[] {
+  function generateCardData(cardCount: number, delayIncrement:number = 0.2): CardData[] {
     const cardData: CardData[] = [];
     for (let index = 0; index < cardCount; index++) {
       const cardName = `card-${index}`;
@@ -68,7 +68,7 @@
     --animation-duration: ${animationDuration};`;
 
   onMount(() => {
-    let borderStyles = ["solid", "dashed", "dotted", "double"];
+    let borderStyles:string[] = ["solid", "dashed", "dotted", "double"];
     if (randomBorderColor) {
       generateRandomBorderColor();
     }

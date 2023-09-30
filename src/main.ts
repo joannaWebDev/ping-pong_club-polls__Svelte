@@ -1,8 +1,12 @@
-import "./app.css"
-import App from "./App.svelte"
+import './app.css';
+import App from './App.svelte';
 
 const app = new App({
-  target: document.getElementById("app"),
-})
+  /** 
+  used <!> to silence Type 'HTMLElement | null' is not assignable to type 'Document | Element | ShadowRoot'.
+  Type 'null' is not assignable to type 'Document | Element | ShadowRoot'.
+  **/
+  target: document.getElementById('app')!,
+});
 
-export default app
+export default app;

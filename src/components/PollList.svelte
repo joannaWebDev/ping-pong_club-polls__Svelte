@@ -31,13 +31,13 @@ const getIdAndType = (id: string, type: string) => dispatch("type", { id, type }
 
 // Declare variables and states
 export let pollList: Poll[] = [];
-let activeColor = "#23a523ba";
+let activeColor:String = "#23a523ba";
 localStorage.setItem("polls", JSON.stringify(pollList));
 
-  let active = ""
-  let percent = true
+  let active:string = ""
+  let percent:boolean = true
 
-  let popular = 35 // Determines when the card becomes "popular"
+  let popular:number = 35 // Determines when the card becomes "popular"
 </script>
 
 <!-- Display checkbox for toggling percentage view -->

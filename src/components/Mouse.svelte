@@ -1,9 +1,6 @@
 <script lang="ts">
   import { format } from "date-fns";
   import { v4 as uuidv4 } from "uuid";
-  import { fade } from "svelte/transition";
-  import addRandom from "../helper/functions/addRandomPoll";
-  import Button from "../shared/Button.svelte";
   import { createEventDispatcher } from "svelte";
   import getRandomHexColor from "../helper/functions/getRandomHexColor";
 
@@ -42,11 +39,11 @@ interface Error {
     },
   };
 
-  let checkErrors = false;
+  let checkErrors:boolean = false;
 
   $: number = 3;
 
-  let show = false;
+  let show:boolean = false;
 
   function submitHandler() {
     done = false;
