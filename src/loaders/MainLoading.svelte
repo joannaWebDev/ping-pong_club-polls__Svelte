@@ -21,7 +21,7 @@
   export let bgColor:string = "#fff"
   export let color:string = "#000"
   export let speed:number = 8000
-  export let borderRadius:number = Math.floor(Math.random() * 100)
+  export let borderRadius:number = 50 * 100
   export let borderSize:number = 5
   export let borderStyle:string = "solid"
   export let borderColor:string = "#000"
@@ -84,7 +84,7 @@
     class="animate-loading element center"
     style={`border-radius: ${borderRadiusStyle};`}
   >
-    <h1 class="loader">Loading...</h1>
+    <h1 class="loader">Ping ... Pong</h1>
   </div>
 
   <!-- Animated Cards -->
@@ -93,7 +93,7 @@
       class={`animate-loading ${card.name} element`}
       style={`animation-delay: ${card.delay}s ;
        background-color: ${card.bgColor};
-       border-radius: ${borderRadiusStyle};
+       border-radius: 50%;
        border: ${borderSizeStyle} ${borderStyle} ${borderColor};
        `}
     />
